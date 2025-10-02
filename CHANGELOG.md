@@ -43,3 +43,9 @@ in comparison to the previous release
 
 [Unreleased]: https://github.com/<author>/<my-package>/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/<author>/<my-package>/releases/tag/v0.1.0
+
+## [0.1.1] - 2025-10-02
+
+### Changed
+
+- 之前token权限设置错了,改一下
