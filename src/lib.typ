@@ -81,14 +81,13 @@
   // 设置段落首行缩进 / Set paragraph first line indent
   set par(first-line-indent: (amount: first-line-indent, all: true))
 
-  // TODO 优化
   // 显示标题时设置标题字体 / Set title font when displaying headings
   show heading: x => {
     set text(font: title-font)  // 使用标题字体 / Use title font
     x                           // 返回内容 / Return content
   }
 
-  // 显示粗体,时设置无衬线字体 / Set sans-serif font when displaying strong text
+  // TODO 显示粗体,时设置无衬线字体 / Set sans-serif font when displaying strong text
   show selector.or(strong, emph, underline, strike, overline): x => {
     set text(font: sans-family) // 使用无衬线字体家族 / Use sans-serif font family
     x                           // 返回内容 / Return content
@@ -105,7 +104,7 @@
 
 // 此函数获取整个文档作为其 `body`。
 // This function takes the entire document as its `body`.
-#let abyss-book(
+#let flower-book(
   // 您作品的标题。
   // The title of your work.
   title: [Your Title],
@@ -516,3 +515,4 @@
     }
   }
 }
+
