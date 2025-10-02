@@ -46,6 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 之前workflow里一不小心把目标仓库设置成了本仓库自己
 
+## [0.1.3] - 2025-10-02
+
+### Changed
+
+- 之前toml里忘设置分类了
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
@@ -57,3 +63,4 @@ in comparison to the previous release
 [0.1.0]: https://github.com/<author>/<my-package>/releases/tag/v0.1.0
 [0.1.1]: https://github.com/<author>/<my-package>/releases/tag/v0.1.1
 [0.1.2]: https://github.com/<author>/<my-package>/releases/tag/v0.1.2
+[0.1.3]: https://github.com/<author>/<my-package>/releases/tag/v0.1.3
