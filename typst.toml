@@ -4,7 +4,7 @@
 name = "flower-book"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
-authors = [CrokkDark]
+authors = ["跨越晨昏 <@CrossDark>"]
 license = "MIT"
 description = ""
 homepage = ""
