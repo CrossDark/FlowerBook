@@ -198,6 +198,8 @@
     enabled: true,              // 是否启用 / Whether enabled
     title: "",                  // 标题 / Title
   ),
+
+  content-indent: 1pt // 每一级内容的缩进 / Indentation for each level of content
   
   // 字体配置 TODO 删除
   // Font configuration
@@ -212,7 +214,7 @@
     appendix-font: "WenQuanYi Zen Hei", // 附录字体 / Appendix font
   ),
   
-  // 您作品的内容。
+  // 您作品的内容,自动传入
   // The content of your work.
   body,
 ) = {
@@ -417,7 +419,7 @@
     // 显示标题时添加缩进
     // Add indentation when displaying headings
     show heading: it => {
-      block(inset: (left: 1em * it.level), it) // 根据标题级别缩进 / Indent based on heading level
+      block(inset: (left: content-indent * it.level), it) // 根据标题级别缩进 / Indent based on heading level
     }
 
     // 显示段落和列表时根据对应的标题层级缩进
@@ -427,7 +429,7 @@
       if h == none {
         return it               // 如果没有标题，返回原段落 / Return original paragraph if no heading
       }
-      block(inset: (left: 1em * (h.level + 1)), it) // 根据标题级别缩进,额外再缩进一级与标题区分 / Indent based on heading level + 1
+      block(inset: (left: content-indent * (h.level + 1)), it) // 根据标题级别缩进,额外再缩进一级与标题区分 / Indent based on heading level + 1
     }
 
     // 显示一级标题时根据设置分页
@@ -515,5 +517,6 @@
     }
   }
 }
+
 
 
