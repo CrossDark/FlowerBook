@@ -2,7 +2,7 @@
 
 [package]
 name = "flower-book"
-version = "0.1.3"
+version = "0.1.4"
 entrypoint = "src/lib.typ"
 authors = ["跨越晨昏 <@CrossDark>"]
 license = "MIT"
@@ -10,7 +10,7 @@ description = ""
 homepage = ""
 repository = "https://github.com/CrossDark/FlowerBook/"
 keywords = []
-categories = ["template"]
+categories = ["book"]
 disciplines = []
 # compiler = ""
 exclude = [
