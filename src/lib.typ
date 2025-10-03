@@ -9,8 +9,8 @@
 
 // 用增加字符间距的函数覆盖默认的 `smallcaps` 和 `upper` 函数。
 // Override default `smallcaps` and `upper` functions with increased character spacing.
-// 默认的字间距（tracking）是 0pt。
-// Default character tracking is 0pt.
+// 默认的字间距（tracking）是 0.6pt。
+// Default character tracking is 0.6pt.
 #let smallcaps(body) = std-smallcaps(text(tracking: 0.6pt, body))
 #let upper(body) = std-upper(text(tracking: 0.6pt, body))
 
@@ -515,4 +515,5 @@
     }
   }
 }
+
 
