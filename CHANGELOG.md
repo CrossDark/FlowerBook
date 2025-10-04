@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- [ ] 改为黑底白字,并使用变量管理文本和背景颜色
+
 ### Deprecated
 
 ### Removed
