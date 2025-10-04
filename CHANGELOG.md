@@ -24,6 +24,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [ ] 赤-红玫瑰主题
     - [ ] 封面
     - [ ] 正文
+  - [ ] 橙-鹤望兰主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] 黄-向日葵主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] 赤-红玫瑰主题
+    - [ ] 封面
+    - [ ] 正文
 
 ### 更改 Changed
 
