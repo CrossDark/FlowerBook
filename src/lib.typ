@@ -22,23 +22,20 @@
 #let smallcaps(body) = std-smallcaps(text(tracking: 0.6pt, body))
 #let upper(body) = std-upper(text(tracking: 0.6pt, body))
 
-// 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
-// Font settings, adapted from zh-kit(https://github.com/ctypst/zh-kit)
-#let setup-fonts(
-  // 中文字体家族设置 / Chinese font family settings
-  cjk-serif-family: (           // 衬线字体 / Serif font family
+// 字体家族设置 / Font family settings
+#let cjk-serif-family = (           // 衬线字体 / Serif font family
     "LXGW WenKai",              // 霞鹜文楷 / LXGW WenKai
     "思源宋体 CN",              // Source Han Serif CN
     "Songti SC",                // 宋体 SC / Songti SC
     "SimSun",                   // 宋体 / SimSun
-  ),
-  cjk-sans-family: (            // 无衬线字体 / Sans-serif font family
+)
+#let cjk-sans-family = (            // 无衬线字体 / Sans-serif font family
     "思源黑体 CN",              // Source Han Sans CN
     "Inter",                    // Inter font
     "PingFang SC",              // 苹方 SC / PingFang SC
     "SimHei"                    // 黑体 / SimHei
-  ),
-  cjk-mono-family: (            // 等宽字体 / Monospace font family
+)
+#let cjk-mono-family = (            // 等宽字体 / Monospace font family
     "霞鹜文楷 Mono",            // LXGW WenKai Mono
     "WenQuanYi Zen Hei Mono",   // 文泉驿正黑等宽 / WenQuanYi Zen Hei Mono
     "JetBrains Mono",           // JetBrains Mono
@@ -46,35 +43,39 @@
     "Noto Sans Mono CJK SC",    // Noto Sans Mono CJK SC
     "Menlo",                    // Menlo
     "Consolas",                 // Consolas
-  ),
-  cjk-title-family: (           // 标题字体 / Title font family
+)
+#let cjk-title-family = (           // 标题字体 / Title font family
     "DuanNingMaoBiXiaoKai",     // 段宁毛笔小楷 / DuanNingMaoBiXiaoKai
-  ),
-  latin-serif-family: (         // 拉丁衬线字体 / Latin serif font family
+)
+#let latin-serif-family = (         // 拉丁衬线字体 / Latin serif font family
     "Times New Roman",          // Times New Roman
     "Georgia",                  // Georgia
-  ),
-  latin-sans-family: (          // 拉丁无衬线字体 / Latin sans-serif font family
+)
+#let latin-sans-family = (          // 拉丁无衬线字体 / Latin sans-serif font family
     "Times New Roman",          // Times New Roman
     "Georgia",                  // Georgia
-  ),
-  latin-mono-family: (          // 拉丁等宽字体 / Latin monospace font family
+)
+#let latin-mono-family = (          // 拉丁等宽字体 / Latin monospace font family
     "JetBrains Mono",           // JetBrains Mono
     "Consolas",                 // Consolas
     "Menlo",                    // Menlo
-  ),
-  latin-title-family: (         // 拉丁标题字体 / Latin title font family
+)
+#let latin-title-family = (         // 拉丁标题字体 / Latin title font family
     "",                         // 空字符串 / Empty string
-  ),
+)
+
+// 合并中英文字体家族 / Merge Chinese and English font families
+#let serif-family = latin-serif-family + cjk-serif-family
+#let sans-family = latin-sans-family + cjk-sans-family
+#let mono-family = latin-mono-family + cjk-mono-family
+#let title-font = latin-title-family + cjk-title-family
+
+// 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
+// Font settings, adapted from zh-kit(https://github.com/ctypst/zh-kit)
+#let setup-contect(
   first-line-indent: 0em,       // 首行缩进 / First line indent
   doc                           // 文档内容 / Document content
 ) = {
-  // 合并中英文字体家族 / Merge Chinese and English font families
-  let serif-family = latin-serif-family + cjk-serif-family
-  let sans-family = latin-sans-family + cjk-sans-family
-  let mono-family = latin-mono-family + cjk-mono-family
-  let title-font = latin-title-family + cjk-title-family
-
   // 设置文本语言和字体 / Set text language and font
   set text(
     lang: "zh",                 // 语言设置为中文 / Language set to Chinese
@@ -90,7 +91,7 @@
     x                           // 返回内容 / Return content
   }
 
-  // TODO 显示粗体,时设置无衬线字体 / Set sans-serif font when displaying strong text
+  // TODO 显示粗体,上下划线,时设置无衬线字体 / Set sans-serif font when displaying strong text
   show selector.or(strong, emph, underline, strike, overline): x => {
     set text(font: sans-family) // 使用无衬线字体家族 / Use sans-serif font family
     x                           // 返回内容 / Return content
@@ -206,16 +207,6 @@
   
   // 字体配置 TODO 删除
   // Font configuration
-  fonts: (
-    title-font: "DuanNingMaoBiXiaoKai", // 标题字体 / Title font
-    cover-font: (               // 封面字体 / Cover font
-      author-font: "新蒂朝露體", // 作者字体 / Author font
-      abstract-font: "新蒂龍宮体", // 简介字体 / Abstract font
-    ),
-    preface-font: "小賴字體 SC", // 前言字体 / Preface font
-    contents-font: "小賴字體 SC", // 目录字体 / Contents font
-    appendix-font: "WenQuanYi Zen Hei", // 附录字体 / Appendix font
-  ),
   
   // 您作品的内容,自动传入
   // The content of your work.
@@ -258,12 +249,12 @@
 
           // 标题居中
           // Center title
-          #text(3.3em, fill: text-color, font: fonts.title-font)[*#title*] // 标题文本 / Title text
+          #text(3.3em, fill: text-color, font: title-font)[*#title*] // 标题文本 / Title text
 
           // 作者
           // Author
           #v(1em)               // 垂直间距 / Vertical space
-          #text(1.6em, fill: text-color, font: fonts.cover-font.author-font)[#author] // 作者文本 / Author text
+          #text(1.6em, fill: text-color, font: sans-family)[#author] // 作者文本 / Author text
         ],
       ),
     )
@@ -317,7 +308,7 @@
   // 将前言显示为第二或三页（浅色主题）。
   // Display preface as second or third page (light theme).
   {
-    set text(font: fonts.preface-font) // 设置前言字体 / Set preface font
+    set text(font: mono-family) // 设置前言字体 / Set preface font
     if preface != none {
       page(
         background: image("image/preface.svg", width: 100%, height: 100%), // 背景图片 / Background image
@@ -332,7 +323,7 @@
   // 显示目录（浅色主题）。
   // Display table of contents (light theme).
   {
-    set text(font: fonts.contents-font) // 设置目录字体 / Set contents font
+    set text(font: mono-family) // 设置目录字体 / Set contents font
     if table-of-contents != none {
       table-of-contents         // 显示目录 / Display table of contents
     }
@@ -446,7 +437,7 @@
     
     // 显示正文内容
     // Display main body content
-    setup-fonts(
+    setup-contect(
       body,                     // 正文内容 / Main body content
     )
   }
@@ -474,7 +465,7 @@
   {
     if bibliographys != none {  // 如果有参考文献 / If bibliography exists
       pagebreak()               // 分页 / Page break
-      set text(font: fonts.appendix-font) // 设置附录字体 / Set appendix font
+      set text(font: mono-family) // 设置附录字体 / Set appendix font
       show std-bibliography: set text(0.85em, fill: text-color) // 设置参考文献文本样式 / Set bibliography text style
       // 对参考文献使用默认段落属性。
       // Use default paragraph properties for bibliography.

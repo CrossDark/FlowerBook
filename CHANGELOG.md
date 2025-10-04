@@ -18,25 +18,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 新增 Added
 
 - [ ] 增加七种花之主题和一种混合主题
-  - [ ] 混合主题
+  - [ ] `混合`主题
     - [ ] 封面
     - [ ] 正文
-  - [ ] 赤-红玫瑰主题
+  - [ ] `赤-红玫瑰`主题
     - [ ] 封面
     - [ ] 正文
-  - [ ] 橙-鹤望兰主题
+  - [ ] `橙-鹤望兰`主题
     - [ ] 封面
     - [ ] 正文
-  - [ ] 黄-向日葵主题
+  - [ ] `黄-向日葵`主题
     - [ ] 封面
     - [ ] 正文
-  - [ ] 赤-红玫瑰主题
+  - [ ] `绿-绿石竹`主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] `青-飞燕草`主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] `蓝-蓝铃花`主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] `紫-大花蕙兰`主题
     - [ ] 封面
     - [ ] 正文
 
 ### 更改 Changed
 
-- [ ] 改为黑底白字,并使用变量管理文本和背景颜色
 - [ ] 拆分floeer-book函数为一个主函数和许多小函数,小函数内放置各个部分/功能的具体实现代码,主函数内调用各个小函数并执行全局性代码
 
 ### 弃用 Deprecated
@@ -80,6 +88,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 分类更新为Book,Layout
 
+## [0.1.5] - 2025-10-02
+
+### 更改 Changed
+
+- 改为黑底白字,并使用变量管理文本和背景颜色
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
@@ -93,3 +107,4 @@ in comparison to the previous release
 [0.1.2]: https://github.com/<author>/<my-package>/releases/tag/v0.1.2
 [0.1.3]: https://github.com/<author>/<my-package>/releases/tag/v0.1.3
 [0.1.4]: https://github.com/<author>/<my-package>/releases/tag/v0.1.4
+[0.1.5]: https://github.com/<author>/<my-package>/releases/tag/v0.1.5

@@ -2,7 +2,7 @@
 
 [package]
 name = "flower-book"
-version = "0.1.4"
+version = "0.1.5"
 entrypoint = "src/lib.typ"
 authors = ["跨越晨昏 <@CrossDark>"]
 license = "MIT"
@@ -22,6 +22,7 @@ exclude = [
   "Justfile",
   "thumbnail-dark.svg",
   "thumbnail-light.svg",
+  "original",
 ]
 
 [template]
