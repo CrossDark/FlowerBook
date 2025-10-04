@@ -1,10 +1,13 @@
 // 本模板基于lib模板https://github.com/talal/ilm 使用DeepSeek修改而成
 // This template is based on the lib template https://github.com/talal/ilm and modified by DeepSeek
 
-// 颜色主题配置 - 白底黑字
+// 主题颜色配置 - 白底黑字
 // Color theme configuration - white background with black text
 #let background-color = white
 #let text-color = black
+#let stroke-color = luma(36.72%)  // 描边颜色 / Stroke color
+#let fill-color = background-color // 填充颜色使用背景色 / Fill color uses background color
+
 
 // 用于弥补缺少 `std` 作用域的工作区。
 // Workaround for missing `std` scope in workspace.
@@ -18,11 +21,6 @@
 // Default character tracking is 0.6pt.
 #let smallcaps(body) = std-smallcaps(text(tracking: 0.6pt, body))
 #let upper(body) = std-upper(text(tracking: 0.6pt, body))
-
-// 模板中使用的颜色 - 使用主题变量
-// Colors used in template - using theme variables
-#let stroke-color = luma(36.72%)  // 描边颜色 / Stroke color
-#let fill-color = background-color // 填充颜色使用背景色 / Fill color uses background color
 
 // 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
 // Font settings, adapted from zh-kit(https://github.com/ctypst/zh-kit)
@@ -522,3 +520,4 @@
     }
   }
 }
+
