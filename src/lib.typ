@@ -1,6 +1,11 @@
 // 本模板基于lib模板https://github.com/talal/ilm 使用DeepSeek修改而成
 // This template is based on the lib template https://github.com/talal/ilm and modified by DeepSeek
 
+// 颜色主题配置 - 白底黑字
+// Color theme configuration - white background with black text
+#let background-color = white
+#let text-color = black
+
 // 用于弥补缺少 `std` 作用域的工作区。
 // Workaround for missing `std` scope in workspace.
 #let std-bibliography = bibliography
@@ -14,10 +19,10 @@
 #let smallcaps(body) = std-smallcaps(text(tracking: 0.6pt, body))
 #let upper(body) = std-upper(text(tracking: 0.6pt, body))
 
-// 模板中使用的颜色 - 更改为深色主题
-// Colors used in template - changed to dark theme
+// 模板中使用的颜色 - 使用主题变量
+// Colors used in template - using theme variables
 #let stroke-color = luma(36.72%)  // 描边颜色 / Stroke color
-#let fill-color = luma(100%)    // 填充颜色 / Fill color
+#let fill-color = background-color // 填充颜色使用背景色 / Fill color uses background color
 
 // 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
 // Font settings, adapted from zh-kit(https://github.com/ctypst/zh-kit)
@@ -222,10 +227,10 @@
   // Set document metadata.
   set document(title: title, author: author)
 
-  // 设置深色主题 - 黑色背景和白色文本
-  // Set dark theme - black background and white text
-  set page(fill: white)         // 页面填充黑色 / Page fill white
-  set text(fill: black, size: 12pt) // 文本填充黑色，大小12pt / Text fill black, size 12pt
+  // 设置浅色主题 - 白色背景和黑色文本
+  // Set light theme - white background and black text
+  set page(fill: background-color) // 页面填充白色 / Page fill white
+  set text(fill: text-color, size: 12pt) // 文本填充黑色，大小12pt / Text fill black, size 12pt
 
   // 配置页面尺寸和边距。
   // Configure page size and margins.
@@ -234,8 +239,8 @@
     margin: (bottom: 1.75cm, top: 2.25cm), // 底部和顶部边距 / Bottom and top margins
   )
 
-  // 深色主题的封面页。
-  // Cover page for dark theme.
+  // 浅色主题的封面页。
+  // Cover page for light theme.
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
@@ -246,7 +251,7 @@
           // 日期
           // Date
           #if date != none {
-            text(1.4em, fill: black, date.display(date-format)) // 显示日期 / Display date
+            text(1.4em, fill: text-color, date.display(date-format)) // 显示日期 / Display date
           } else {
             // 如果没有提供日期，则插入一个空行以保持布局一致。
             // If no date is provided, insert an empty line to maintain consistent layout.
@@ -255,12 +260,12 @@
 
           // 标题居中
           // Center title
-          #text(3.3em, fill: black, font: fonts.title-font)[*#title*] // 标题文本 / Title text
+          #text(3.3em, fill: text-color, font: fonts.title-font)[*#title*] // 标题文本 / Title text
 
           // 作者
           // Author
           #v(1em)               // 垂直间距 / Vertical space
-          #text(1.6em, fill: black, font: fonts.cover-font.author-font)[#author] // 作者文本 / Author text
+          #text(1.6em, fill: text-color, font: fonts.cover-font.author-font)[#author] // 作者文本 / Author text
         ],
       ),
     )
@@ -275,15 +280,15 @@
           // Abstract content
           // 默认行高是 0.65em。
           // Default line height is 0.65em.
-          #text(3.3em, fill: black)[*#title*] // 标题文本 / Title text
+          #text(3.3em, fill: text-color)[*#title*] // 标题文本 / Title text
           #par(leading: 0.78em, justify: true, linebreaks: "optimized", abstract) // 段落格式 / Paragraph formatting
         ],
       ),
     )
   }
 
-  // 使用深色主题配置段落属性。
-  // Configure paragraph properties with dark theme.
+  // 使用浅色主题配置段落属性。
+  // Configure paragraph properties with light theme.
   set par(leading: 0.7em, spacing: 1.35em, justify: true, linebreaks: "optimized")
 
   // 在标题后添加垂直间距。
@@ -295,10 +300,10 @@
   
   // 不对标题进行断字。
   // Do not hyphenate headings.
-  show heading: set text(hyphenate: false, fill: white)
+  show heading: set text(hyphenate: false, fill: text-color)
 
-  // 在外部链接旁边显示一个浅色小圆圈（深色主题）。
-  // Display a light small circle next to external links (dark theme).
+  // 在外部链接旁边显示一个深色小圆圈（浅色主题）。
+  // Display a dark small circle next to external links (light theme).
   show link: it => {
     it                          // 链接内容 / Link content
     // 针对 ctheorems 包的工作区，使其标签保持默认的链接样式。
@@ -311,8 +316,8 @@
     }
   }
 
-  // 将前言显示为第二或三页（深色主题）。
-  // Display preface as second or third page (dark theme).
+  // 将前言显示为第二或三页（浅色主题）。
+  // Display preface as second or third page (light theme).
   {
     set text(font: fonts.preface-font) // 设置前言字体 / Set preface font
     if preface != none {
@@ -326,8 +331,8 @@
     }
   }
 
-  // 显示目录（深色主题）。
-  // Display table of contents (dark theme).
+  // 显示目录（浅色主题）。
+  // Display table of contents (light theme).
   {
     set text(font: fonts.contents-font) // 设置目录字体 / Set contents font
     if table-of-contents != none {
@@ -335,8 +340,8 @@
     }
   }
 
-  // 配置页码和页脚（深色主题）。
-  // Configure page numbers and footer (dark theme).
+  // 配置页码和页脚（浅色主题）。
+  // Configure page numbers and footer (light theme).
   set page(
     background: image("image/main-body.svg", width: 100%, height: 100%), // 背景图片 / Background image
     footer: context {           // 页脚上下文 / Footer context
@@ -364,7 +369,7 @@
         let gap = 1.75em           // 间距 / Gap
         // 显示章节名称
         // Display chapter name
-        let chapter = upper(text(size: 0.7em, fill: black, current.body)) // 章节名称大写 / Chapter name uppercase
+        let chapter = upper(text(size: 0.7em, fill: text-color, current.body)) // 章节名称大写 / Chapter name uppercase
         if current.numbering != none {
           align(aln)[#chapter]  // 对齐章节名称 / Align chapter name
           align(aln)[#i]        // 对齐页码 / Align page number
@@ -373,12 +378,12 @@
     },
   )
 
-  // 配置公式编号（深色主题）。
-  // Configure equation numbering (dark theme).
+  // 配置公式编号（浅色主题）。
+  // Configure equation numbering (light theme).
   set math.equation(numbering: "(1)") // 公式编号格式 / Equation numbering format
 
-  // 在内联代码的小框中显示，并保持正确的基线（深色主题）。
-  // Display inline code in small boxes with correct baseline (dark theme).
+  // 在内联代码的小框中显示，并保持正确的基线（浅色主题）。
+  // Display inline code in small boxes with correct baseline (light theme).
   show raw.where(block: false): box.with(
     fill: fill-color,           // 填充颜色 / Fill color
     inset: (x: 3pt, y: 0pt),    // 内边距 / Inset
@@ -386,8 +391,8 @@
     radius: 2pt,                // 圆角半径 / Radius
   )
 
-  // 显示带内边距的代码块（深色主题）。
-  // Display code blocks with padding (dark theme).
+  // 显示带内边距的代码块（浅色主题）。
+  // Display code blocks with padding (light theme).
   show raw.where(block: true): block.with(inset: (x: 5pt), fill: fill-color)
 
   // 跨页拆分大表格。
@@ -398,16 +403,16 @@
     // Increase table cell padding
     inset: 7pt,                 // 默认为 5pt / Default is 5pt
     stroke: (0.5pt + stroke-color), // 描边 / Stroke
-    fill: white,                // 填充白色 / Fill white
+    fill: background-color,     // 填充白色 / Fill white
   )
   
-  // 对表头行使用小型大写字母（深色主题）。
-  // Use small caps for table header rows (dark theme).
+  // 对表头行使用小型大写字母（浅色主题）。
+  // Use small caps for table header rows (light theme).
   show table.cell.where(y: 0): smallcaps
   
   // 设置表格文本颜色为黑色
   // Set table text color to black
-  show table: set text(fill: black)
+  show table: set text(fill: text-color)
 
   // 将 `body` 用花括号包裹，使其拥有自己的上下文。这样 show/set 规则将仅适用于 body。
   // Wrap `body` in curly braces to give it its own context. This way show/set rules will only apply to body.
@@ -448,8 +453,8 @@
     )
   }
 
-  // 在参考文献之前显示附录（深色主题）。
-  // Display appendix before bibliography (dark theme).
+  // 在参考文献之前显示附录（浅色主题）。
+  // Display appendix before bibliography (light theme).
   {
     if appendix.enabled {       // 如果启用附录 / If appendix is enabled
       pagebreak()               // 分页 / Page break
@@ -466,13 +471,13 @@
     }
   }
 
-  // 显示参考文献（深色主题）。
-  // Display bibliography (dark theme).
+  // 显示参考文献（浅色主题）。
+  // Display bibliography (light theme).
   {
     if bibliographys != none {  // 如果有参考文献 / If bibliography exists
       pagebreak()               // 分页 / Page break
       set text(font: fonts.appendix-font) // 设置附录字体 / Set appendix font
-      show std-bibliography: set text(0.85em, fill: black) // 设置参考文献文本样式 / Set bibliography text style
+      show std-bibliography: set text(0.85em, fill: text-color) // 设置参考文献文本样式 / Set bibliography text style
       // 对参考文献使用默认段落属性。
       // Use default paragraph properties for bibliography.
       show std-bibliography: set par(leading: 0.65em, justify: false, linebreaks: auto) // 设置参考文献段落属性 / Set bibliography paragraph properties
@@ -480,8 +485,8 @@
     }
   }
 
-  // 显示图、表和代码清单的索引（深色主题）。
-  // Display indexes for figures, tables, and listings (dark theme).
+  // 显示图、表和代码清单的索引（浅色主题）。
+  // Display indexes for figures, tables, and listings (light theme).
   let fig-t(kind) = figure.where(kind: kind) // 根据类型获取图形 / Get figures by kind
   let has-fig(kind) = counter(fig-t(kind)).get().at(0) > 0 // 检查是否有该类型图形 / Check if figures of kind exist
   if figure-index.enabled or table-index.enabled or listing-index.enabled { // 如果启用任何索引 / If any index is enabled
@@ -517,6 +522,3 @@
     }
   }
 }
-
-
-
