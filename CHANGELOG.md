@@ -1,11 +1,11 @@
-# Changelog
+# 更新日志 Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## 待发布 [Unreleased]
 
 <details>
 
@@ -13,19 +13,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 </details>
 
-### Added
+### 新增 Added
 
-### Changed
+### 更改 Changed
 
 - [ ] 改为黑底白字,并使用变量管理文本和背景颜色
 
-### Deprecated
+### 弃用 Deprecated
 
-### Removed
+### 移除 Removed
 
-### Fixed
+### 修复 Fixed
 
-### Security
+### 安全 Security
 
 ## [0.1.0] - 2025-10-02
 
