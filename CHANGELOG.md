@@ -17,6 +17,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### 新增 Added
 
+- [ ] 增加七种花之主题和一种混合主题
+  - [ ] 混合主题
+    - [ ] 封面
+    - [ ] 正文
+  - [ ] 赤-红玫瑰主题
+    - [ ] 封面
+    - [ ] 正文
+
 ### 更改 Changed
 
 - [ ] 改为黑底白字,并使用变量管理文本和背景颜色
