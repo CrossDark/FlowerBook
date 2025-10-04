@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 更改 Changed
 
 - [ ] 改为黑底白字,并使用变量管理文本和背景颜色
+- [ ] 拆分floeer-book函数为一个主函数和许多小函数
 
 ### 弃用 Deprecated
 
