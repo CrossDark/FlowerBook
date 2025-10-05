@@ -168,6 +168,7 @@
   set page(
     paper: paper-size,
     margin: (bottom: margin-bottom, top: margin-top),
+  )
     // 如果启用页脚，则设置页脚内容
     footer: if footer-enabled {
       context {
