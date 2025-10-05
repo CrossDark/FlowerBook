@@ -164,62 +164,53 @@
   page-number-format: "1",
   chapter-in-footer: true
 ) = {
-  // 配置页面尺寸和边距
-  // Configure page size and margins
+  // 确保页面设置生效
   set page(
     paper: paper-size,
     margin: (bottom: margin-bottom, top: margin-top),
-  )
-  
-  // 如果启用页脚，则设置页脚内容
-  // Set footer content if footer is enabled
-  if footer-enabled {
-    set page(
-      background: image("image/main-body.svg", width: 100%, height: 100%),
-      footer: context {
+    // 如果启用页脚，则设置页脚内容
+    footer: if footer-enabled {
+      context {
         // 获取当前页码
-        // Get current page number
         let i = counter(page).at(here()).first()
 
         // 居中对齐
-        // Center alignment
         let is-odd = calc.odd(i)
         let aln = center
 
         // 判断是否在新章节的页面上
-        // Check if on a page that starts a new chapter
         let target = heading.where(level: 1)
         if query(target).any(it => it.location().page() == i) {
-          return align(aln)[#i]
-        }
-
-        // 如果启用章节显示，则在页脚显示章节名称
-        // Display chapter name in footer if enabled
-        if chapter-in-footer {
-          let before = query(target.before(here()))
-          if before.len() > 0 {
-            let current = before.last()
-            let gap = 1.75em
-            let chapter = upper(text(size: 0.7em, fill: text-color, current.body))
-            if current.numbering != none {
-              align(aln)[#chapter]
-              align(aln)[#i]
-            }
-          }
+          align(aln)[#text(fill: text-color, i)]
         } else {
-          // 如果不显示章节，只显示页码
-          // If not showing chapter, only show page number
-          align(aln)[#i]
+          // 如果启用章节显示，则在页脚显示章节名称
+          if chapter-in-footer {
+            let before = query(target.before(here()))
+            if before.len() > 0 {
+              let current = before.last()
+              let chapter = upper(text(size: 0.7em, fill: text-color, current.body))
+              if current.numbering != none {
+                align(aln)[
+                  #chapter \
+                  #v(0.5em) \
+                  #text(fill: text-color, i)
+                ]
+              }
+            } else {
+              align(aln)[#text(fill: text-color, i)]
+            }
+          } else {
+            // 如果不显示章节，只显示页码
+            align(aln)[#text(fill: text-color, i)]
+          }
         }
-      },
-    )
-  } else {
-    // 如果不启用页脚，只设置背景
-    // If footer is disabled, only set background
-    set page(
-      background: image("image/main-body.svg", width: 100%, height: 100%),
-    )
-  }
+      }
+    } else {
+      none
+    },
+    // 设置背景
+    background: image("image/main-body.svg", width: 100%, height: 100%),
+  )
 }
 
 // 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
@@ -315,6 +306,12 @@
     heading-numbering-format: "", // 标题编号格式 / Heading numbering format
     body: none,                 // 附录内容 / Appendix content
   ),
+
+  // 设置
+  margin-bottom: 1.75cm,
+  margin-top: 2.25cm,
+  footer-enabled: true,
+  chapter-in-footer: true,
   
   // 参考文献
   // Bibliography
@@ -391,6 +388,16 @@
   // Configure paragraph properties with light theme.
   set par(leading: 0.7em, spacing: 1.35em, justify: true, linebreaks: "optimized")
 
+  // 配置页码和页脚（浅色主题）。
+  // Configure page numbers and footer (light theme).
+  setup-page(
+    paper-size: paper-size,
+    margin-bottom: margin-bottom,
+    margin-top: margin-top,
+    footer-enabled: footer-enabled,
+    chapter-in-footer: chapter-in-footer,
+  )
+
   // 在标题后添加垂直间距。
   // Add vertical spacing after headings.
   show heading: it => {
@@ -426,17 +433,6 @@
   // Display table of contents (light theme).
   setup-table-of-contents(
     table-of-contents: table-of-contents
-  )
-
-  // 配置页码和页脚（浅色主题）。
-  // Configure page numbers and footer (light theme).
-  setup-page(
-    paper-size: paper-size,
-    margin-bottom: 1.75cm,
-    margin-top: 2.25cm,
-    footer-enabled: true,
-    page-number-format: "1",
-    chapter-in-footer: true
   )
 
   // 配置公式编号（浅色主题）。
