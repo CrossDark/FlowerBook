@@ -94,11 +94,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 改为黑底白字,并使用变量管理文本和背景颜色
 
+## [0.1.7] - 2025-10-02
+
+### 更改 Changed
+
+- 已将封面和前言页的代码独立成函数,但是页码的函数遇到了问题
+
 <!--
+以下是每个版本的目标URL：
 Below are the target URLs for each version
-You can link version numbers (in level-2 headings)
-to the corresponding tag on GitHub, or the diff
-in comparison to the previous release
+你可以链接版本号（在二级标题中）
+到 GitHub 上的对应标签，或差异
+to the corresponding tag on GitHub, or the diff in comparison to the previous release
 -->
 
 [Unreleased]: https://github.com/<author>/<my-package>/compare/v0.1.4...HEAD
@@ -108,3 +115,4 @@ in comparison to the previous release
 [0.1.3]: https://github.com/<author>/<my-package>/releases/tag/v0.1.3
 [0.1.4]: https://github.com/<author>/<my-package>/releases/tag/v0.1.4
 [0.1.5]: https://github.com/<author>/<my-package>/releases/tag/v0.1.5
+[0.1.7]: https://github.com/<author>/<my-package>/releases/tag/v0.1.7
