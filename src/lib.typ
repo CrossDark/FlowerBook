@@ -82,7 +82,7 @@
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
-      background: image("image/cover.svg", width: 100%, height: 100%), // 背景图片 / Background image
+      background: image("image/cover/cover.svg", width: 100%, height: 100%), // 背景图片 / Background image
       align(
         center + horizon,       // 居中对齐 / Center alignment
         block(width: 90%)[      // 宽度90%的块 / Block with 90% width
@@ -135,7 +135,7 @@
     set text(font: mono-family) // 设置前言字体 / Set preface font
     if preface != none {
       page(
-        background: image("image/preface.svg", width: 100%, height: 100%), // 背景图片 / Background image
+        background: image("image/perface/preface.svg", width: 100%, height: 100%), // 背景图片 / Background image
         align(
           center + horizon,     // 居中对齐 / Center alignment
           block(width: 50%)[#preface] // 前言内容块 / Preface content block
@@ -375,7 +375,7 @@
   // 配置页码和页脚
   // Configure page numbers and footer
   set page(
-    background: image("image/main-body.svg", width: 100%, height: 100%), // 背景图片 / Background image
+    background: image("image/content/main-body.svg", width: 100%, height: 100%), // 背景图片 / Background image
     footer: context {           // 页脚上下文 / Footer context
       // 获取当前页码。
       // Get current page number.

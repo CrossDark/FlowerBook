@@ -1,5 +1,5 @@
 # The `FlowerBook` Package
-<div align="center">Version 0.1.8</div>
+<div align="center">Version 0.1.9</div>
 
 A flower style template
 
@@ -30,7 +30,7 @@ A flower style template
 These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
 
 ```typ
-#import "@preview/flower-book:0.1.8": *
+#import "@preview/flower-book:0.1.9": *
 
 #show: flower-book.with()
 #my-func()
@@ -56,7 +56,7 @@ $ Final step
 A more in-depth description of usage. Any template arguments? A complicated example that showcases most if not all of the functions the package provides? This is also an excellent place to signpost the manual.
 
 ```typ
-#import "@preview/flower-book:0.1.8": *
+#import "@preview/flower-book:0.1.9": *
 
 #let my-complicated-example = ...
 ```

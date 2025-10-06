@@ -94,6 +94,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 改为黑底白字,并使用变量管理文本和背景颜色
 
+## [0.1.9] - 2025-10-02
+
+### 更改 Changed
+
+- 将部分设置分成了单独的函数
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
@@ -101,10 +107,11 @@ to the corresponding tag on GitHub, or the diff
 in comparison to the previous release
 -->
 
-[Unreleased]: https://github.com/<author>/<my-package>/compare/v0.1.4...HEAD
-[0.1.0]: https://github.com/<author>/<my-package>/releases/tag/v0.1.0
-[0.1.1]: https://github.com/<author>/<my-package>/releases/tag/v0.1.1
-[0.1.2]: https://github.com/<author>/<my-package>/releases/tag/v0.1.2
-[0.1.3]: https://github.com/<author>/<my-package>/releases/tag/v0.1.3
-[0.1.4]: https://github.com/<author>/<my-package>/releases/tag/v0.1.4
-[0.1.5]: https://github.com/<author>/<my-package>/releases/tag/v0.1.5
+[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/v0.1.4...HEAD
+[0.1.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.0
+[0.1.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.1
+[0.1.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.2
+[0.1.3]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.3
+[0.1.4]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.4
+[0.1.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
+[0.1.9]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
