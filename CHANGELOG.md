@@ -108,11 +108,11 @@ Below are the target URLs for each version
 to the corresponding tag on GitHub, or the diff in comparison to the previous release
 -->
 
-[Unreleased]: https://github.com/<author>/<my-package>/compare/v0.1.4...HEAD
-[0.1.0]: https://github.com/<author>/<my-package>/releases/tag/v0.1.0
-[0.1.1]: https://github.com/<author>/<my-package>/releases/tag/v0.1.1
-[0.1.2]: https://github.com/<author>/<my-package>/releases/tag/v0.1.2
-[0.1.3]: https://github.com/<author>/<my-package>/releases/tag/v0.1.3
-[0.1.4]: https://github.com/<author>/<my-package>/releases/tag/v0.1.4
-[0.1.5]: https://github.com/<author>/<my-package>/releases/tag/v0.1.5
-[0.1.7]: https://github.com/<author>/<my-package>/releases/tag/v0.1.7
+[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/v0.1.4...HEAD
+[0.1.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.0
+[0.1.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.1
+[0.1.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.2
+[0.1.3]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.3
+[0.1.4]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.4
+[0.1.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
+[0.1.7]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.7
