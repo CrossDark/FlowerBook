@@ -162,56 +162,11 @@
   margin-top: 2.25cm,
   footer-enabled: true,
   page-number-format: "1",
-  chapter-in-footer: true
+  chapter-in-footer: true,
+  body: none,
 ) = {
   // 确保页面设置生效
-  set page(
-    paper: paper-size,
-    margin: (bottom: margin-bottom, top: margin-top),
-  )
-    // 如果启用页脚，则设置页脚内容
-    footer: if footer-enabled {
-      context {
-        // 获取当前页码
-        let i = counter(page).at(here()).first()
-
-        // 居中对齐
-        let is-odd = calc.odd(i)
-        let aln = center
-
-        // 判断是否在新章节的页面上
-        let target = heading.where(level: 1)
-        if query(target).any(it => it.location().page() == i) {
-          align(aln)[#text(fill: text-color, i)]
-        } else {
-          // 如果启用章节显示，则在页脚显示章节名称
-          if chapter-in-footer {
-            let before = query(target.before(here()))
-            if before.len() > 0 {
-              let current = before.last()
-              let chapter = upper(text(size: 0.7em, fill: text-color, current.body))
-              if current.numbering != none {
-                align(aln)[
-                  #chapter \
-                  #v(0.5em) \
-                  #text(fill: text-color, i)
-                ]
-              }
-            } else {
-              align(aln)[#text(fill: text-color, i)]
-            }
-          } else {
-            // 如果不显示章节，只显示页码
-            align(aln)[#text(fill: text-color, i)]
-          }
-        }
-      }
-    } else {
-      none
-    },
-    // 设置背景
-    background: image("image/main-body.svg", width: 100%, height: 100%),
-  )
+  body
 }
 
 // 字体设置,改编自zh-kit(https://github.com/ctypst/zh-kit)
@@ -308,7 +263,7 @@
     body: none,                 // 附录内容 / Appendix content
   ),
 
-  // 设置
+  // 设置页边
   margin-bottom: 1.75cm,
   margin-top: 2.25cm,
   footer-enabled: true,
@@ -374,30 +329,11 @@
     paper: paper-size,          // 纸张尺寸 / Paper size
     margin: (bottom: 1.75cm, top: 2.25cm), // 底部和顶部边距 / Bottom and top margins
   )
-  
-  // 调用封面页函数
-  // Call cover page function
-  setup-cover(
-    title: title,
-    author: author,
-    date: date,
-    date-format: date-format,
-    abstract: abstract,
-  )
 
   // 使用浅色主题配置段落属性。
   // Configure paragraph properties with light theme.
   set par(leading: 0.7em, spacing: 1.35em, justify: true, linebreaks: "optimized")
 
-  // 配置页码和页脚（浅色主题）。
-  // Configure page numbers and footer (light theme).
-  setup-page(
-    paper-size: paper-size,
-    margin-bottom: margin-bottom,
-    margin-top: margin-top,
-    footer-enabled: footer-enabled,
-    chapter-in-footer: chapter-in-footer,
-  )
 
   // 在标题后添加垂直间距。
   // Add vertical spacing after headings.
@@ -434,6 +370,44 @@
   // Display table of contents (light theme).
   setup-table-of-contents(
     table-of-contents: table-of-contents
+  )
+
+  // 配置页码和页脚
+  // Configure page numbers and footer
+  set page(
+    background: image("image/main-body.svg", width: 100%, height: 100%), // 背景图片 / Background image
+    footer: context {           // 页脚上下文 / Footer context
+      // 获取当前页码。
+      // Get current page number.
+      let i = counter(page).at(here()).first()
+
+      // 居中对齐
+      // Center alignment
+      let is-odd = calc.odd(i)  // 判断是否为奇数页 / Check if odd page
+      let aln = center          // 对齐方式 / Alignment
+
+      // 我们是否在开始新章节的页面上？
+      // Are we on a page that starts a new chapter?
+      let target = heading.where(level: 1) // 一级标题 / Level 1 heading
+      if query(target).any(it => it.location().page() == i) {
+        return align(aln)[#i]   // 返回页码 / Return page number
+      }
+
+      // 查找当前所在部分的章节。
+      // Find the chapter of the current section.
+      let before = query(target.before(here())) // 当前位置之前的标题 / Headings before current position
+      if before.len() > 0 {
+        let current = before.last() // 当前章节 / Current chapter
+        let gap = 1.75em           // 间距 / Gap
+        // 显示章节名称
+        // Display chapter name
+        let chapter = upper(text(size: 0.7em, fill: text-color, current.body)) // 章节名称大写 / Chapter name uppercase
+        if current.numbering != none {
+          align(aln)[#chapter]  // 对齐章节名称 / Align chapter name
+          align(aln)[#i]        // 对齐页码 / Align page number
+        }
+      }
+    },
   )
 
   // 配置公式编号（浅色主题）。
