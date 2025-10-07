@@ -82,7 +82,7 @@
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
-      background: image("image/cover/cover.svg", width: 100%, height: 100%), // 背景图片 / Background image
+      background: image("image/cover/sunflower.svg", width: 100%, height: 100%), // 背景图片 / Background image
       align(
         center + horizon,       // 居中对齐 / Center alignment
         block(width: 90%)[      // 宽度90%的块 / Block with 90% width
