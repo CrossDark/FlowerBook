@@ -70,6 +70,12 @@
 #let mono-family = latin-mono-family + cjk-mono-family
 #let title-font = latin-title-family + cjk-title-family
 
+// 设置标题风格
+#let title-styles = (
+  mixed: "",
+  sunflower: "image/cover/sunflower.svg"
+)
+
 // 浅色主题封面页函数
 // Light theme cover page function
 #let setup-cover(
@@ -78,11 +84,12 @@
   date: none,
   date-format: "[month repr:long] [day padding:zero], [year repr:full]",
   abstract: none,
+  cover-style: "sunflower",
 ) = {
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
-      background: image("image/cover/sunflower.svg", width: 100%, height: 100%), // 背景图片 / Background image
+      background: image("image/cover/sunflower.svg", width: 100%, height: 100%), // TODO 背景图片 / Background image
       align(
         center + horizon,       // 居中对齐 / Center alignment
         block(width: 90%)[      // 宽度90%的块 / Block with 90% width
@@ -245,6 +252,12 @@
   // 前言页的内容。这将显示在封面页之后。如果没有，可以省略。
   // Content of the preface page. This will be displayed after the cover page. Can be omitted if none.
   preface: none,
+
+  // 设置封面风格
+  cover-style: "sunflower",
+
+  // 设置正文风格
+  content-style: "sunflower",
   
   // 调用 `outline` 函数的结果或 `none`。
   // Result of calling the `outline` function or `none`.
@@ -330,6 +343,16 @@
     margin: (bottom: 1.75cm, top: 2.25cm), // 底部和顶部边距 / Bottom and top margins
   )
 
+  // 配置封面页
+  setup-cover(
+    title: title,
+    author: author,
+    date: date,
+    date-format: date-format,
+    abstract: abstract,
+    cover-style: cover-style,
+  )
+
   // 使用浅色主题配置段落属性。
   // Configure paragraph properties with light theme.
   set par(leading: 0.7em, spacing: 1.35em, justify: true, linebreaks: "optimized")
@@ -375,7 +398,7 @@
   // 配置页码和页脚
   // Configure page numbers and footer
   set page(
-    background: image("image/content/main-body.svg", width: 100%, height: 100%), // 背景图片 / Background image
+    background: image("image/cover/sunflower.svg", width: 100%, height: 100%), // TODO 背景图片 / Background image
     footer: context {           // 页脚上下文 / Footer context
       // 获取当前页码。
       // Get current page number.

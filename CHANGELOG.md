@@ -4,6 +4,9 @@
 
 All notable changes to this project will be documented in this file.
 
+该格式基于[变更日志规范](https://keepachangelog.com/en/1.1.0/)，
+且本项目遵循[语义化版本控制](https://semver.org/spec/v2.0.0.html)。
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -28,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [ ] 封面
     - [ ] 正文
   - [ ] `黄-向日葵`主题
-    - [ ] 封面
+    - [X] 封面
     - [ ] 正文
   - [ ] `绿-绿石竹`主题
     - [ ] 封面
@@ -100,6 +103,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 将部分设置分成了单独的函数
 
+## [0.2.0] - 2025-10-02
+
+### 更改 Changed
+
+- 正在编写风格字典,但是好像不会字典
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
@@ -114,4 +123,5 @@ in comparison to the previous release
 [0.1.3]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.3
 [0.1.4]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.4
 [0.1.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
-[0.1.9]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
+[0.1.9]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.9
+[0.2.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.0
