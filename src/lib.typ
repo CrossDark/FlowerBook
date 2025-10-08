@@ -76,6 +76,12 @@
   sunflower: "image/cover/sunflower.svg"
 )
 
+// 设置前言风格
+#let title-styles = (
+  mixed: "",
+  sunflower: "image/cover/sunflower.svg"
+)
+
 // 封面页函数
 // Cover page function
 #let setup-cover(
@@ -89,7 +95,7 @@
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
-      background: image("image/cover/sunflower.svg", width: 100%, height: 100%), // TODO 背景图片 / Background image
+      background: image(title-styles.sunflower, width: 100%, height: 100%), // TODO 背景图片 / Background image
       align(
         center + horizon,       // 居中对齐 / Center alignment
         block(width: 90%)[      // 宽度90%的块 / Block with 90% width
@@ -142,7 +148,7 @@
     set text(font: mono-family) // 设置前言字体 / Set preface font
     if preface != none {
       page(
-        background: image("image/perface/preface.svg", width: 100%, height: 100%), // 背景图片 / Background image
+        background: image(title-styles.sunflower, width: 100%, height: 100%), // 背景图片 / Background image
         align(
           center + horizon,     // 居中对齐 / Center alignment
           block(width: 50%)[#preface] // 前言内容块 / Preface content block
