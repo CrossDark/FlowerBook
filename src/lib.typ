@@ -76,8 +76,8 @@
   sunflower: "image/cover/sunflower.svg"
 )
 
-// 浅色主题封面页函数
-// Light theme cover page function
+// 封面页函数
+// Cover page function
 #let setup-cover(
   title: [Your Title],
   author: "Author",
