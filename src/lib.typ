@@ -82,6 +82,12 @@
   sunflower: "image/cover/sunflower.svg"
 )
 
+// 设置正文风格
+#let content-styles = (
+  mixed: "",
+  sunflower: "image/cover/sunflower.svg"
+)
+
 // 封面页函数
 // Cover page function
 #let setup-cover(
@@ -327,7 +333,7 @@
     title: "",                  // 标题 / Title
   ),
 
-  content-indent: 1pt, // 每一级内容的缩进 / Indentation for each level of content
+  content-indent: 5pt, // 每一级内容的缩进 / Indentation for each level of content
   
   // 作品的内容,自动传入
   // The content of your work.
@@ -404,7 +410,7 @@
   // 配置页码和页脚
   // Configure page numbers and footer
   set page(
-    background: image(perface-styles.at(cover-style), width: 100%, height: 100%), // TODO 背景图片 / Background image
+    background: image(content-styles.at(cover-style), width: 100%, height: 100%), // TODO 背景图片 / Background image
     footer: context {           // 页脚上下文 / Footer context
       // 获取当前页码。
       // Get current page number.
