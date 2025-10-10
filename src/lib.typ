@@ -416,6 +416,10 @@
       // Get current page number.
       let i = counter(page).at(here()).first()
 
+      // 获取总页码
+      // Get total page count
+      let total = counter(page).final().at(here()).first()
+
       // 居中对齐
       // Center alignment
       let is-odd = calc.odd(i)  // 判断是否为奇数页 / Check if odd page
@@ -439,7 +443,7 @@
         let chapter = upper(text(size: 0.7em, fill: text-color, current.body)) // 章节名称大写 / Chapter name uppercase
         if current.numbering != none {
           align(aln)[#chapter]  // 对齐章节名称 / Align chapter name
-          align(aln)[#i]        // 对齐页码 / Align page number
+          align(aln)[#i / #total]     // 对齐页码 / Align page number
         }
       }
     },
