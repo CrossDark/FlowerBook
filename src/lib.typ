@@ -418,7 +418,7 @@
 
       // 获取总页码
       // Get total page count
-      let total = counter(page).final().at(here()).first()
+      let total = counter(page).final().first()
 
       // 居中对齐
       // Center alignment
@@ -429,7 +429,7 @@
       // Are we on a page that starts a new chapter?
       let target = heading.where(level: 1) // 一级标题 / Level 1 heading
       if query(target).any(it => it.location().page() == i) {
-        return align(aln)[#i]   // 返回页码 / Return page number
+        return align(aln)[#i / #total]   // 返回页码 / Return page number
       }
 
       // 查找当前所在部分的章节。
