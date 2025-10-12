@@ -500,7 +500,7 @@
 
     // 显示段落和列表时根据对应的标题层级缩进
     // Indent paragraphs based on corresponding heading level
-    show selector.or(par, enum): it => context { // 查找标题和段落并传递给it变量
+    show selector.or(par, enum, list, table, raw): it => context { // 查找标题和段落并传递给it变量
       let h = query(selector(heading).before(here())).at(-1, default: none) // 获取前一个标题 / Get previous heading
       if h == none {
         return it               // 如果没有标题，返回原段落 / Return original paragraph if no heading
