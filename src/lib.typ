@@ -19,8 +19,11 @@
 // Override default `smallcaps` and `upper` functions with increased character spacing.
 // 默认的字间距（tracking）是 0.6pt。
 // Default character tracking is 0.6pt.
-#let smallcaps(body) = std-smallcaps(text(tracking: 0.6pt, body))
-#let upper(body) = std-upper(text(tracking: 0.6pt, body))
+// 设置字间距
+// Set character tracking
+#let character-spacing = 0.6pt
+#let smallcaps(body) = std-smallcaps(text(tracking: character-spacing, body))
+#let upper(body) = std-upper(text(tracking: character-spacing, body))
 
 // 字体家族设置 / Font family settings
 #let cjk-serif-family = (           // 衬线字体 / Serif font family
@@ -71,18 +74,21 @@
 #let title-font = latin-title-family + cjk-title-family
 
 // 设置封面风格
+// Set cover styles
 #let cover-styles = (
   mixed: "",
   sunflower: "image/cover/sunflower.svg"
 )
 
 // 设置前言风格
+// Set preface styles
 #let perface-styles = (
   mixed: "",
   sunflower: "image/cover/sunflower.svg"
 )
 
 // 设置正文风格
+// Set content styles
 #let content-styles = (
   mixed: "",
   sunflower: "image/cover/sunflower.svg"
@@ -101,7 +107,7 @@
   if abstract == none { // 如果没有摘要，则显示一个有大圆的封面。
     // If there is no abstract, display a cover with a large circle.
     page(
-      background: image(perface-styles.at(cover-style), width: 100%, height: 100%), // TODO 背景图片 / Background image
+      background: image(perface-styles.at(cover-style), width: 100%, height: 100%), // 背景图片 / Background image
       align(
         center + horizon,       // 居中对齐 / Center alignment
         block(width: 90%)[      // 宽度90%的块 / Block with 90% width
@@ -126,8 +132,8 @@
         ],
       ),
     )
-  } else { // TODO 如果有摘要，则显示一个标准封面
-    // TODO If there is an abstract, display a standard cover
+  } else { // 如果有摘要，则显示一个标准封面
+    // If there is an abstract, display a standard cover
     page(
       background: image("image/preface.svg", width: 100%, height: 100%), // 背景图片 / Background image
       align(
@@ -148,8 +154,8 @@
 #let setup-foreword(
   preface: none
 ) = {
-  // 将前言显示为第二或三页（浅色主题）。
-  // Display preface as second or third page (light theme).
+  // 将前言显示为第二或三页。
+  // Display preface as second or third page.
   {
     set text(font: mono-family) // 设置前言字体 / Set preface font
     if preface != none {
@@ -185,6 +191,7 @@
   body: none,
 ) = {
   // 确保页面设置生效
+  // Ensure page settings take effect
   body
 }
 
@@ -209,7 +216,7 @@
     x                           // 返回内容 / Return content
   }
 
-  // TODO 显示粗体,上下划线,时设置无衬线字体 / Set sans-serif font when displaying strong text
+  // 显示粗体,上下划线,时设置无衬线字体 / Set sans-serif font when displaying strong text
   show selector.or(strong, emph, underline, strike, overline): x => {
     set text(font: sans-family) // 使用无衬线字体家族 / Use sans-serif font family
     x                           // 返回内容 / Return content
@@ -266,9 +273,11 @@
   preface: none,
 
   // 设置封面风格
+  // Set cover style
   cover-style: "sunflower",
 
   // 设置正文风格
+  // Set content style
   content-style: "sunflower",
   
   // 调用 `outline` 函数的结果或 `none`。
@@ -289,6 +298,7 @@
   ),
 
   // 设置页边
+  // Set page margins
   margin-bottom: 1.75cm,
   margin-top: 2.25cm,
   footer-enabled: true,
@@ -343,8 +353,8 @@
   // Set document metadata.
   set document(title: title, author: author)
 
-  // 设置浅色主题 - 白色背景和黑色文本
-  // Set light theme - white background and black text
+  // 设置主题 - 白色背景和黑色文本
+  // Set theme - white background and black text
   set page(fill: background-color) // 页面填充白色 / Page fill white
   set text(fill: text-color, size: 12pt) // 文本填充黑色，大小12pt / Text fill black, size 12pt
 
@@ -356,6 +366,7 @@
   )
 
   // 配置封面页
+  // Configure cover page
   setup-cover(
     title: title,
     author: author,
@@ -365,8 +376,8 @@
     cover-style: cover-style,
   )
 
-  // 使用浅色主题配置段落属性。
-  // Configure paragraph properties with light theme.
+  // 使用主题配置段落属性。
+  // Configure paragraph properties with theme.
   set par(leading: 0.7em, spacing: 1.35em, justify: true, linebreaks: "optimized")
 
 
@@ -381,8 +392,8 @@
   // Do not hyphenate headings.
   show heading: set text(hyphenate: false, fill: text-color)
 
-  // 在外部链接旁边显示一个深色小圆圈（浅色主题）。
-  // Display a dark small circle next to external links (light theme).
+  // 在外部链接旁边显示一个小圆圈。
+  // Display a small circle next to external links.
   show link: it => {
     it                          // 链接内容 / Link content
     // 针对 ctheorems 包的工作区，使其标签保持默认的链接样式。
@@ -395,14 +406,14 @@
     }
   }
 
-  // 将前言显示为第二或三页（浅色主题）。
-  // Display preface as second or third page (light theme).
+  // 将前言显示为第二或三页
+  // Display preface as second or third page
   setup-foreword(
     preface: preface,
   )
 
-  // 显示目录（浅色主题）。
-  // Display table of contents (light theme).
+  // 显示目录
+  // Display table of contents
   setup-table-of-contents(
     table-of-contents: table-of-contents
   )
@@ -410,7 +421,7 @@
   // 配置页码和页脚
   // Configure page numbers and footer
   set page(
-    background: image(content-styles.at(cover-style), width: 100%, height: 100%), // TODO 背景图片 / Background image
+    background: image(content-styles.at(cover-style), width: 100%, height: 100%), // 背景图片 / Background image
     footer: context {           // 页脚上下文 / Footer context
       // 获取当前页码。
       // Get current page number.
@@ -449,12 +460,12 @@
     },
   )
 
-  // 配置公式编号（浅色主题）。
-  // Configure equation numbering (light theme).
+  // 配置公式编号
+  // Configure equation numbering 
   set math.equation(numbering: "(1)") // 公式编号格式 / Equation numbering format
 
-  // 在内联代码的小框中显示，并保持正确的基线（浅色主题）。
-  // Display inline code in small boxes with correct baseline (light theme).
+  // 在内联代码的小框中显示，并保持正确的基线
+  // Display inline code in small boxes with correct baseline
   show raw.where(block: false): box.with(
     fill: fill-color,           // 填充颜色 / Fill color
     inset: (x: 3pt, y: 0pt),    // 内边距 / Inset
@@ -462,8 +473,8 @@
     radius: 2pt,                // 圆角半径 / Radius
   )
 
-  // 显示带内边距的代码块（浅色主题）。
-  // Display code blocks with padding (light theme).
+  // 显示带内边距的代码块
+  // Display code blocks with padding
   show raw.where(block: true): block.with(inset: (x: 5pt), fill: fill-color)
 
   // 跨页拆分大表格。
@@ -477,8 +488,8 @@
     fill: background-color,     // 填充白色 / Fill white
   )
   
-  // 对表头行使用小型大写字母（浅色主题）。
-  // Use small caps for table header rows (light theme).
+  // 对表头行使用小型大写字母
+  // Use small caps for table header rows.
   show table.cell.where(y: 0): smallcaps
   
   // 设置表格文本颜色为黑色
@@ -524,8 +535,8 @@
     )
   }
 
-  // 在参考文献之前显示附录（浅色主题）。
-  // Display appendix before bibliography (light theme).
+  // 在参考文献之前显示附录。
+  // Display appendix before bibliography.
   {
     if appendix.enabled {       // 如果启用附录 / If appendix is enabled
       pagebreak()               // 分页 / Page break
@@ -534,16 +545,16 @@
       // 重制标题计数器
       // Reset heading counter
       counter(heading).update(0) // 更新计数器为0 / Update counter to 0
-      // TODO 对于附录中的标题前缀，标准约定是 A.1.1.
-      // TODO For heading prefixes in appendix, standard convention is A.1.1.
+      // 对于附录中的标题前缀，标准约定是 A.1.1.
+      // For heading prefixes in appendix, standard convention is A.1.1.
       set heading(numbering: "A.1.") // 设置附录标题编号 / Set appendix heading numbering
 
       appendix.body             // 附录内容 / Appendix content
     }
   }
 
-  // 显示参考文献（浅色主题）。
-  // Display bibliography (light theme).
+  // 显示参考文献。
+  // Display bibliography.
   {
     if bibliographys != none {  // 如果有参考文献 / If bibliography exists
       pagebreak()               // 分页 / Page break
@@ -556,8 +567,8 @@
     }
   }
 
-  // 显示图、表和代码清单的索引（浅色主题）。
-  // Display indexes for figures, tables, and listings (light theme).
+  // 显示图、表和代码清单的索引。
+  // Display indexes for figures, tables, and listings.
   let fig-t(kind) = figure.where(kind: kind) // 根据类型获取图形 / Get figures by kind
   let has-fig(kind) = counter(fig-t(kind)).get().at(0) > 0 // 检查是否有该类型图形 / Check if figures of kind exist
   if figure-index.enabled or table-index.enabled or listing-index.enabled { // 如果启用任何索引 / If any index is enabled
@@ -593,4 +604,3 @@
     }
   }
 }
-

@@ -115,6 +115,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 页码终于改好了
 
+## [0.2.2] - 2025-10-02
+
+### 更改 Changed
+
+- 更新了注释
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
@@ -122,7 +128,7 @@ to the corresponding tag on GitHub, or the diff
 in comparison to the previous release
 -->
 
-[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/latest...HEAD
 [0.1.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.0
 [0.1.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.1
 [0.1.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.2
@@ -132,3 +138,4 @@ in comparison to the previous release
 [0.1.9]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.9
 [0.2.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.0
 [0.2.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.1
+[0.2.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.2
