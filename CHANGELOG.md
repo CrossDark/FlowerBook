@@ -127,6 +127,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 分类首字母改为小写
 
+## [0.2.4] - 2025-10-02
+
+### 更改 Changed
+
+- 更新略缩图
+
 <!--
 Below are the target URLs for each version
 You can link version numbers (in level-2 headings)

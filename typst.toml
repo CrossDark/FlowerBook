@@ -28,7 +28,7 @@ exclude = [
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "thumbnail-dark.png"
 
 # [tool.mytool]
 # foo = "bar"
