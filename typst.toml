@@ -28,7 +28,7 @@ exclude = [
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail-dark.png"
+thumbnail = "src/image/cover/sunflower.svg"
 
 # [tool.mytool]
 # foo = "bar"
