@@ -2,7 +2,7 @@
 
 [package]
 name = "flower-book"
-version = "0.2.4"
+version = "0.2.5"
 entrypoint = "src/lib.typ"
 authors = ["跨越晨昏 <@CrossDark>"]
 license = "MIT"
@@ -20,15 +20,13 @@ exclude = [
   "tests",
   ".typstignore",
   "Justfile",
-  "thumbnail-dark.svg",
-  "thumbnail-light.svg",
   "original",
 ]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "src/image/cover/sunflower.svg"
+thumbnail = "src/image/cover/sunflower.webp"
 
 # [tool.mytool]
 # foo = "bar"
