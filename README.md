@@ -43,13 +43,15 @@ $ Final step
 
 A more in-depth description of usage. Any template arguments? A complicated example that showcases most if not all of the functions the package provides? This is also an excellent place to signpost the manual.
 
+更深入的用法描述。 有什么模板论据吗？ 一个复杂的示例，展示了软件包提供的大多数（如果不是所有）功能？ 这也是为手册贴路标的绝佳场所。
+
 ```typ
 #import "@preview/flower-book:0.2.6": *
 
 #let my-complicated-example = ...
 ```
 
-## Additional Documentation and Acknowledgments
+## Additional Documentation and Acknowledgments 附加文件和知识点
 
 * Project folder on server:
 * Confluence link:
