@@ -4,6 +4,9 @@
 
 All notable changes to this project will be documented in this file.
 
+该格式基于[变更日志规范](https://keepachangelog.com/en/1.1.0/)，
+且本项目遵循[语义化版本控制](https://semver.org/spec/v2.0.0.html)。
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -28,7 +31,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [ ] 封面
     - [ ] 正文
   - [ ] `黄-向日葵`主题
-    - [ ] 封面
+    - [X] 封面
     - [ ] 正文
   - [ ] `绿-绿石竹`主题
     - [ ] 封面
@@ -42,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [ ] `紫-大花蕙兰`主题
     - [ ] 封面
     - [ ] 正文
+- [ ] 在段落前绘制指示线
 
 ### 更改 Changed
 
@@ -94,25 +98,72 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 改为黑底白字,并使用变量管理文本和背景颜色
 
-## [0.1.7] - 2025-10-02
+## [0.1.9] - 2025-10-02
 
 ### 更改 Changed
 
-- 已将封面和前言页的代码独立成函数,但是页码的函数遇到了问题
+- 将部分设置分成了单独的函数
+
+## [0.2.0] - 2025-10-02
+
+### 更改 Changed
+
+- 正在编写风格字典,但是好像不会字典
+
+## [0.2.1] - 2025-10-02
+
+### 更改 Changed
+
+- 页码终于改好了
+
+## [0.2.2] - 2025-10-02
+
+### 更改 Changed
+
+- 更新了注释
+
+## [0.2.3] - 2025-10-02
+
+### 更改 Changed
+
+- 分类首字母改为小写
+
+## [0.2.4] - 2025-10-02
+
+### 更改 Changed
+
+- 更新略缩图
+
+## [0.2.5] - 2025-10-24
+
+### 更改 Changed
+
+- 更新略缩图格式
 
 <!--
 以下是每个版本的目标URL：
 Below are the target URLs for each version
-你可以链接版本号（在二级标题中）
-到 GitHub 上的对应标签，或差异
-to the corresponding tag on GitHub, or the diff in comparison to the previous release
+You can link version numbers (in level-2 headings)
+to the corresponding tag on GitHub, or the diff
+in comparison to the previous release
+
+以下是每个版本的目标URL
+您可以将版本号(位于二级标题中)链接至GitHub上的对应标签
+或链接至与前一版本的差异对比
 -->
 
-[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/CrossDark/FlowerBook/compare/latest...HEAD
 [0.1.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.0
 [0.1.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.1
 [0.1.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.2
 [0.1.3]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.3
 [0.1.4]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.4
 [0.1.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.5
+[0.1.9]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.9
+[0.2.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.0
+[0.2.1]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.1
+[0.2.2]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.2
+[0.2.3]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.3
+[0.2.4]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.4
+[0.2.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.5
 [0.1.7]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.1.7

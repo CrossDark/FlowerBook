@@ -2,7 +2,7 @@
 
 [package]
 name = "flower-book"
-version = "0.1.7"
+version = "0.2.5"
 entrypoint = "src/lib.typ"
 authors = ["跨越晨昏 <@CrossDark>"]
 license = "MIT"
@@ -10,7 +10,7 @@ description = ""
 homepage = ""
 repository = "https://github.com/CrossDark/FlowerBook/"
 keywords = []
-categories = ["Book","Layout"]
+categories = ["book","layout"]
 disciplines = []
 # compiler = ""
 exclude = [
@@ -20,15 +20,13 @@ exclude = [
   "tests",
   ".typstignore",
   "Justfile",
-  "thumbnail-dark.svg",
-  "thumbnail-light.svg",
   "original",
 ]
 
 [template]
 path = "template"
 entrypoint = "main.typ"
-thumbnail = "thumbnail.png"
+thumbnail = "src/image/cover/sunflower.webp"
 
 # [tool.mytool]
 # foo = "bar"
