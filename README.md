@@ -13,6 +13,8 @@ A flower style template
 
 These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
 
+这些说明将为您提供在typst网络应用程序上启动和运行的项目副本。也许是导入软件包的简短代码示例和非常简单的预告使用。
+
 ```typ
 #import "@preview/flower-book:0.2.6": *
 
@@ -25,11 +27,13 @@ These instructions will get you a copy of the project up and running on the typs
   <img src="./thumbnail-light.svg">
 </picture>
 
-### Installation
+### Installation 安装
 
-A step by step guide that will tell you how to get the development environment up and running. This should explain how to clone the repo and where to (maybe a link to the typst documentation on it), along with any pre-requisite software and installation steps.
+A step by step guide that will tell you how to get the development environment up and running. This should explain how to clone the repo, along with any pre-requisite software and installation steps.
 
-```
+一份逐步指南，将指导您如何搭建并运行开发环境。本指南应说明如何克隆代码库，并列明所需预装软件及安装步骤。
+
+```shell
 $ First step
 $ Another step
 $ Final step
