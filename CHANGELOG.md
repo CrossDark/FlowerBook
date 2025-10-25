@@ -45,6 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [ ] `紫-大花蕙兰`主题
     - [ ] 封面
     - [ ] 正文
+- [ ] 在段落前绘制指示线
 
 ### 更改 Changed
 
@@ -144,6 +145,10 @@ Below are the target URLs for each version
 You can link version numbers (in level-2 headings)
 to the corresponding tag on GitHub, or the diff
 in comparison to the previous release
+
+以下是每个版本的目标URL
+您可以将版本号(位于二级标题中)链接至GitHub上的对应标签
+或链接至与前一版本的差异对比
 -->
 
 [Unreleased]: https://github.com/CrossDark/FlowerBook/compare/latest...HEAD
