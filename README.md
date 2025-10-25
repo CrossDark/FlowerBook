@@ -33,10 +33,10 @@ A step by step guide that will tell you how to get the development environment u
 
 一份逐步指南，将指导您如何搭建并运行开发环境。本指南应说明如何克隆代码库，并列明所需预装软件及安装步骤。
 
+#### MacOS
+
 ```shell
-$ First step
-$ Another step
-$ Final step
+git clone https://github.com/CrossDark/AbyssBook.git "$HOME/Library/Application Support/typst/packages/local/abyss-book/0.4.2"
 ```
 
 ## Usage
