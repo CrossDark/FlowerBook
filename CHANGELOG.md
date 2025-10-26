@@ -45,7 +45,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [ ] `紫-大花蕙兰`主题
     - [ ] 封面
     - [ ] 正文
-- [ ] 在段落前绘制指示线
+- [ ] 在段落前绘制指示线![]()
 
 ### 更改 Changed
 
@@ -152,6 +152,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 修正了一些pull request中的错误
 
+## [0.2.8] - 2025-10-26
+
+### 更改 Changed
+
+- 继续修改错误
+
 <!--
 以下是每个版本的目标URL：
 Below are the target URLs for each version
@@ -181,3 +187,5 @@ in comparison to the previous release
 [0.2.5]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.5
 [0.2.6]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.6
 [0.2.7]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.7
+[0.2.8]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.8
+
