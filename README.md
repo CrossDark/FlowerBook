@@ -48,7 +48,7 @@ A more in-depth description of usage. Any template arguments? A complicated exam
 ```typ
 #import "@preview/flower-book:0.2.7": *
 
-#let my-complicated-example = ...
+// #let my-complicated-example = ...
 ```
 
 ## Additional Documentation and Acknowledgments 附加文件和知识点
