@@ -1,5 +1,5 @@
 # The `FlowerBook` Package
-<div align="center">Version 0.2.7</div>
+<div align="center">Version 0.2.8</div>
 
 A flower style template
 
@@ -16,7 +16,7 @@ These instructions will get you a copy of the project up and running on the typs
 这些说明将为您提供在typst网络应用程序上启动和运行的项目副本。也许是导入软件包的简短代码示例和非常简单的预告使用。
 
 ```typ
-#import "@preview/flower-book:0.2.7": *
+#import "@preview/flower-book:0.2.8": *
 
 #show: flower-book.with()
 #my-func()
