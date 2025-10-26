@@ -36,7 +36,7 @@ A step by step guide that will tell you how to get the development environment u
 #### MacOS
 
 ```shell
-git clone https://github.com/CrossDark/FlowerBook.git "$HOME/Library/Application Support/typst/packages/local/flower-book/0.2.7"
+git clone https://github.com/CrossDark/FlowerBook.git "$HOME/Library/Application Support/typst/packages/local/flower-book/0.2.8"
 ```
 
 ## Usage
@@ -46,7 +46,7 @@ A more in-depth description of usage. Any template arguments? A complicated exam
 更深入的用法描述。 有什么模板论据吗？ 一个复杂的示例，展示了软件包提供的大多数（如果不是所有）功能？ 这也是为手册贴路标的绝佳场所。
 
 ```typ
-#import "@preview/flower-book:0.2.7": *
+#import "@preview/flower-book:0.2.8": *
 
 // #let my-complicated-example = ...
 ```
