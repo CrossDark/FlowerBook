@@ -1,4 +1,4 @@
-#import "@preview/flower-book:0.2.5" : *
+#import "@preview/flower-book:0.2.8" : *
 
 #show: flower-book.with(
   title: [高端深渊人产品手册],
