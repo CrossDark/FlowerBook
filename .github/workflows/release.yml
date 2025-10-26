@@ -1,71 +1,99 @@
 name: Package and push to registry repo
+# 触发器配置：当推送以"v"开头的标签时执行此工作流
 on:
   push:
     tags: [ v* ]
 
+# 环境变量定义
 env:
-  # the repository to which to push the release version
-  # usually a fork of typst/packages (https://github.com/typst/packages/)
-  # that you have push privileges to
+  # 目标注册表仓库，通常是 typst/packages 的分支，需要有推送权限
   REGISTRY_REPO: CrossDark/packages
-  # the path within that repo where the "<name>/<version>" directory should be put
-  # for the Typst package registry, keep this as is
+  # 在注册表仓库中的存储路径，对于Typst包注册表保持默认即可
   PATH_PREFIX: packages/preview
 
+# 工作定义
 jobs:
+  # 发布任务
   release:
+    # 在最新的Ubuntu环境中运行
     runs-on: ubuntu-latest
     steps:
+      # 步骤1：检出当前仓库代码
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 步骤2：安装just命令工具（类似make的构建工具）
       - name: Install just
         uses: taiki-e/install-action@v2
         with:
           tool: just
 
+      # 步骤3：设置typst环境（Typst文档排版系统）
       - name: Setup typst
         uses: typst-community/setup-typst@v4
         with:
           typst-version: latest
 
+      # 步骤4：确定并验证包元数据
       - name: Determine and check package metadata
         run: |
+          # 执行脚本设置环境变量
           . scripts/setup
+          # 将包名前缀设置到环境变量
           echo "PKG_NAME=${PKG_PREFIX}" >> "${GITHUB_ENV}"
+          # 将版本号设置到环境变量
           echo "PKG_VERSION=${VERSION}" >> "${GITHUB_ENV}"
 
+          # 验证Git标签名是否与包版本匹配（去掉"v"前缀）
           if [[ "${GITHUB_REF_NAME}" != "v${VERSION}" ]]; then
             echo "package version ${VERSION} does not match release tag ${GITHUB_REF_NAME}" >&2
             exit 1
           fi
 
+      # 步骤5：构建包
       - name: Build package
         run: |
+          # 使用just生成文档
           just doc
+          # 使用just打包，输出到out目录
           just package out
 
+      # 步骤6：检出目标注册表仓库
       - name: Checkout package registry
         uses: actions/checkout@v4
         with:
+          # 指定要检出的注册表仓库
           repository: ${{ env.REGISTRY_REPO }}
+          # 使用密钥进行身份验证
           token: ${{ secrets.REGISTRY_TOKEN }}
+          # 检出到本地目录路径
           path: typst-packages
 
+      # 步骤7：发布包到注册表
       - name: Release package
         run: |
+          # 在注册表仓库中创建包目录结构
           mkdir -p "typst-packages/${{ env.PATH_PREFIX }}/$PKG_NAME"
+          # 将构建好的包移动到注册表目录
           mv "out/${PKG_NAME}/${PKG_VERSION}" "typst-packages/${{ env.PATH_PREFIX }}/${PKG_NAME}"
+          # 清理空目录
           rmdir "out/${PKG_NAME}"
           rmdir out
 
+          # 获取当前仓库的用户信息用于提交注册表仓库
           GIT_USER_NAME="$(git log -1 --pretty=format:'%an')"
           GIT_USER_EMAIL="$(git log -1 --pretty=format:'%ae')"
 
+          # 进入注册表仓库目录进行操作
           cd typst-packages
+          # 配置git用户信息
           git config user.name "${GIT_USER_NAME}"
           git config user.email "${GIT_USER_EMAIL}"
+          # 创建并切换到以"包名-版本号"命名的新分支
           git checkout -b "${PKG_NAME}-${PKG_VERSION}"
+          # 添加所有变更文件
           git add .
+          # 提交变更，提交信息格式为"包名:版本号"
           git commit -m "${PKG_NAME}:${PKG_VERSION}"
+          # 推送分支到远程仓库
           git push --set-upstream origin "${PKG_NAME}-${PKG_VERSION}"
