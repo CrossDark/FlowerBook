@@ -1,63 +1,74 @@
+# Workflow name / 工作流名称
 name: Tests
+
+# Trigger events / 触发事件
 on:
   push:
-    branches: [ main ]
+    branches: [ main ]  # Trigger on push to main branch / 推送至main分支时触发
   pull_request:
-    branches: [ main ]
+    branches: [ main ]  # Trigger on PR to main branch / 向main分支提交PR时触发
 
 jobs:
   tests:
     strategy:
-      # run tests on all versions, even if one fails
+      # Continue running all versions even if one fails / 即使某个版本失败也继续运行所有版本
       fail-fast: false
       matrix:
-        # add any other Typst versions that your package should support
+        # Define test matrix with Typst and Tytanic versions / 定义Typst和Tytanic版本的测试矩阵
         typst-version:
-          - typst: 0.12
-            tytanic: 0.1
-          - typst: 0.13
-            tytanic: 0.2
-            # the docs don't need to build with all versions supported by the package;
-            # the latest one is enough
-            doc: true
+          - typst: 0.12    # Test with Typst 0.12 / 使用Typst 0.12测试
+            tytanic: 0.1   # Use Tytanic 0.1 / 使用Tytanic 0.1
+          - typst: 0.13    # Test with Typst 0.13 / 使用Typst 0.13测试
+            tytanic: 0.2   # Use Tytanic 0.2 / 使用Tytanic 0.2
+            # Only build docs with latest version / 仅在最新版本中构建文档
+            doc: true      # Flag to build documentation / 构建文档的标志
 
+    # Job name with version info / 包含版本信息的任务名称
     name: Test for ${{ matrix.typst-version.typst }} (Tytanic ${{ matrix.typst-version.tytanic }}${{ matrix.typst-version.doc && ', with docs' }})
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Run on Ubuntu latest / 在最新版Ubuntu上运行
 
     steps:
+      # Checkout repository code / 检出仓库代码
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Install just command runner / 安装just命令运行器
       - name: Install just
         uses: taiki-e/install-action@v2
         with:
           tool: just
 
+      # Install Tytanic testing framework / 安装Tytanic测试框架
       - name: Install tytanic
         uses: typst-community/setup-tytanic@v1
         with:
           tytanic-version: ${{ matrix.typst-version.tytanic }}
 
+      # Setup Typst compiler / 设置Typst编译器
       - name: Setup typst
         id: setup-typst
         uses: typst-community/setup-typst@v4
         with:
           typst-version: ${{ matrix.typst-version.typst }}
 
+      # Execute test suite / 执行测试套件
       - name: Run test suite
         run: just test
 
+      # Upload test artifacts for debugging / 上传测试产物用于调试
       - name: Archive test results
         uses: actions/upload-artifact@v4
-        if: always()
+        if: always()  # Always upload even if tests fail / 即使测试失败也始终上传
         with:
           name: typst-${{ steps.setup-typst.outputs.typst-version }}-test-results
-          path: |
-            tests/**/diff/*.png
-            tests/**/out/*.png
-            tests/**/ref/*.png
-          retention-days: 5
+          path: |      # Files to archive / 要归档的文件
+            tests/**/diff/*.png    # Difference images / 差异图片
+            tests/**/out/*.png     # Output images / 输出图片
+            tests/**/ref/*.png     # Reference images / 参考图片
+          retention-days: 5        # Keep artifacts for 5 days / 产物保留5天
 
+      # Build documentation (only for doc-enabled matrix entry) / 构建文档（仅针对启用文档的矩阵条目）
       - name: Build docs
         if: ${{ matrix.typst-version.doc }}
         run: just doc
+        
