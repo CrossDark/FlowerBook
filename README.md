@@ -5,12 +5,6 @@ A flower style template
 
 花卉主题模板
 
-## Template adaptation checklist 模板调整清单
-
-- [ ] remove/replace the example test case
-- [ ] (add your actual code, docs and tests)
-- [ ] remove this section from the README
-
 ## Getting Started 入门
 
 These instructions will get you a copy of the project up and running on the typst web app. Perhaps a short code example on importing the package and a very simple teaser usage.
