@@ -516,7 +516,10 @@
       if h == none {
         return it               // 如果没有标题，返回原段落 / Return original paragraph if no heading
       }
-      block(inset: (left: content-indent * (h.level + 1)), it) // 根据标题级别缩进,额外再缩进一级与标题区分 / Indent based on heading level + 1
+      block(
+        inset: (left: content-indent * (h.level + 1)),
+        stroke: (left: 0.5pt), // 只在左侧绘制边框
+      )[#it]
     }
 
     // 显示一级标题时根据设置分页

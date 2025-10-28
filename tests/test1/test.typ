@@ -160,7 +160,6 @@ grt
   }),
   {
     strong("HEAD")
-    
     "body"
   },
   align(top, []),
@@ -174,7 +173,7 @@ grt
   row-gutter: 0.1em,
   ..(
     box(height: 2.5em, width: 2.5em, inset: 1mm, circle(fill: black)),
-    [#strong[Heading] \ Subheading],
+    [#strong[Heading] \ each Subheading],
   ).map(
     align.with(horizon),
   ),

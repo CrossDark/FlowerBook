@@ -50,6 +50,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 更改 Changed
 
 - [ ] 拆分floeer-book函数为一个主函数和许多小函数,小函数内放置各个部分/功能的具体实现代码,主函数内调用各个小函数并执行全局性代码
+- [ ] 完善测试流程
 
 ### 弃用 Deprecated
 
@@ -158,6 +159,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - 继续修改错误
 
+## [0.3.0] - 2025-10-26
+
+### 更改 Changed
+
+- 继续修改错误
+
 <!--
 以下是每个版本的目标URL：
 Below are the target URLs for each version
@@ -188,4 +195,5 @@ in comparison to the previous release
 [0.2.6]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.6
 [0.2.7]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.7
 [0.2.8]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.2.8
+[0.3.0]: https://github.com/CrossDark/FlowerBook/releases/tag/v0.3.0
 
