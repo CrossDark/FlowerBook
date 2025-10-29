@@ -18,10 +18,12 @@ These instructions will get you a copy of the project up and running on the typs
 #my-func()
 ```
 
+<!--
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./thumbnail-dark.svg">
   <img src="./thumbnail-light.svg">
 </picture>
+-->
 
 ### Installation 安装
 

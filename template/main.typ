@@ -1,4 +1,4 @@
-#import "@preview/flower-book:0.2.8" : *
+#import "@preview/flower-book:0.3.0" : *
 
 #show: flower-book.with(
   title: [FlowerBook],
